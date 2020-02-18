@@ -1,8 +1,12 @@
-const currency = require('../currency')
+const { expect } = require('chai');
+const convert = require('../convert.js')
 
 
-async function printResults(){
-    let result = await currency('ILS')
-    console.log(result)    
-}
-printResults()
+describe('currency', () => {
+    describe('ILS TO USD', () => {
+      it('should convert to 100 USD', () => {
+        expect(convert('ILS','USD',350)).to.be.equal(100);
+      });
+    
+    });
+});
