@@ -56,12 +56,17 @@ const currency_rates = {
         ZAR: 16.606705,
       };
 
-describe('currency', () => {
+describe('Currency Convert', () => {
   describe('ILS TO USD', () => {
     it('should convert to 91.49491980993106 USD', () => {
       expect(convert_corrency('ILS', 'USD', 350, currency_rates)).to.be.closeTo(91.49491980993106, 0.001);
     });
   });
+  describe('Currency double check - GBP TO IDR', () => {
+        it('should convert to should convert to 18203.51140810715', () => {
+                expect(convert_corrency('GBP', 'IDR', 1, currency_rates)).to.be.closeTo(18203.51140810715, 0.001);
+        });
+      });
   describe('Amount equal to zero', () => {
     it('should convert to 0 USD', () => {
       expect(convert_corrency('ILS', 'USD', 0, currency_rates)).to.be.equal(0);
