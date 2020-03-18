@@ -1,9 +1,12 @@
 const getData = require('./currency');
 
-async function convertCurrency(source, destination, amount){
-        const current_rates = await getData("USD");
-        var result = amount / current_rates.rates[source];
-        return result * current_rates.rates[destination];
+function convertCurrency(source, destination, amount, current_rates) {
+  if (amount < 0)
+  {
+    throw "ArithmeticException";
+  }
+  const result = amount / current_rates[source];
+  return result * current_rates[destination];
 }
 
 module.exports = convertCurrency;
